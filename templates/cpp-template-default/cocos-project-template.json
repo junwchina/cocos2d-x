@@ -57,6 +57,10 @@
             "files": [
                "proj.ios_mac/ios/Info.plist"
             ]
+         }, 
+         "setup_pluginx": {
+            "from":"plugin",
+            "to":"plugin"
          }
       }
 }
