@@ -3,6 +3,9 @@
 #include "SimpleAudioEngine.h"
 #include "cocos2d.h"
 #include "lua_module_register.h"
+#include "lua_cocos2dx_pluginx_auto.hpp"
+#include "lua_pluginx_manual_callback.h"
+#include "lua_pluginx_manual_protocols.h"
 
 using namespace CocosDenshion;
 
@@ -32,9 +35,17 @@ void AppDelegate::initGLContextAttrs()
 bool AppDelegate::applicationDidFinishLaunching()
 {
     auto engine = LuaEngine::getInstance();
+
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
     lua_State* L = engine->getLuaStack()->getLuaState();
     lua_module_register(L);
+
+    // registe plugin components into lua engine
+    // register custom function
+    lua_getglobal(L, "_G");
+    register_all_pluginx_protocols(L);
+    register_all_pluginx_manual_callback(L);
+    register_all_pluginx_manual_protocols(L);
     if (engine->executeScriptFile("src/main.lua")) {
         return false;
     }
