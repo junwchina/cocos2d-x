@@ -68,7 +68,7 @@
             "files": [
                "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"
             ]
-         }
+         },
          "setup_pluginx": {
             "from":"plugin",
             "to":"frameworks/runtime-src/plugin"
