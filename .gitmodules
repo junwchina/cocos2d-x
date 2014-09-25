@@ -11,3 +11,6 @@
 	path = external
 	url = git://github.com/cocos2d/cocos2d-x-3rd-party-libs-bin.git
 	branch = v3
+[submodule "plugin"]
+	path = plugin
+	url = git@git.yyjun.info:plugin-x.git
