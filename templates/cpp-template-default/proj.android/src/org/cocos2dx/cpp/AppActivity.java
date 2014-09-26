@@ -29,6 +29,7 @@ package org.cocos2dx.cpp;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.plugin.PluginWrapper;
 import android.os.Bundle;
+import android.content.Intent;
 
 
 public class AppActivity extends Cocos2dxActivity {
@@ -37,5 +38,44 @@ public class AppActivity extends Cocos2dxActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PluginWrapper.init(getContext());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+     
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PluginWrapper.onResume();
+    }
+
+    @Override
+    protected void onPause() { 
+        super.onPause();
+        PluginWrapper.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        PluginWrapper.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        PluginWrapper.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
