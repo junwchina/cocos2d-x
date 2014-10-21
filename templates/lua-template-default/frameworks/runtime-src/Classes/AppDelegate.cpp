@@ -46,6 +46,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     register_all_pluginx_protocols(L);
     register_all_pluginx_manual_callback(L);
     register_all_pluginx_manual_protocols(L);
+    // If you want to use Quick-Cocos2d-X, please uncomment below code
+    // register_all_quick_manual(L);
+
     if (engine->executeScriptFile("src/main.lua")) {
         return false;
     }
